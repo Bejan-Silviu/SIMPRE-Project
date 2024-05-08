@@ -1,0 +1,16 @@
+.notes-page section {
+  width: 100%;
+  box-shadow: 0 0 5px rgb(7, 25, 63);
+  padding: 20px 0;
+  background: rgb(105, 70, 25);
+}
+
+.note-wrapper {
+  max-width: 1920px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.app-main{
+  background-color: aquamarine;
+}
