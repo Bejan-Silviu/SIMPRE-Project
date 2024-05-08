@@ -43,8 +43,17 @@ const deleteNote = async(id)=>{
 
 }
 
-
-
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+  
+    const formattedDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  
+    return formattedDate;
+  }
     return (
         <div className="notes-wrapper">
             {
@@ -57,7 +66,7 @@ const deleteNote = async(id)=>{
                         </div>
           
                         <div className="card-footer">
-                            {note.name}
+                            {formatDate(note.date)}
                             <Link to={`edit/${note._id}`}> Edit</Link>
                         </div>
                         <button className='close' onClick={()=>deleteNote(note._id)} >X</button>
