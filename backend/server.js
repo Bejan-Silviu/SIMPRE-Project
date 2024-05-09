@@ -16,11 +16,18 @@ app.use(cors())
 app.use('/user',userRouter)
 app.use('/api/notes',nodeRouter)
 
-
+app.use(cors({
+    origin:["my-simpre-project.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+}));
 //connection
 const URI = process.env.DATABASE
-mongoose.connect("mongodb+srv://bejangherasimsilviu20:AJCu-96JWLPh_St@notesapp.jylo01p.mongodb.net/?retryWrites=true&w=majority&appName=NotesApp");
+mongoose.connect(URI,err=>{
+    if(err) throw err;
+    console.log('connecte to mongodb')
 
+})
 
 
 if(process.env.NODE_ENV === 'production'){
