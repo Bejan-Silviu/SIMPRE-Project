@@ -25,9 +25,10 @@ const userCtrl = {
             res.json({ msg: "Sign up successful" });
 
         } catch (err) {
-            if (err.code === 11000 && err.keyPattern && err.keyPattern.Username) {
+            if (err.toString().includes("11000")) {
                 return res.status(400).json({ msg: "Username already exists" });
             }
+            
             return res.status(500).json({ msg: err.message })
 
         }
