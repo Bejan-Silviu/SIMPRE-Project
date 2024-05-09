@@ -29,7 +29,9 @@ mongoose.connect(URI,err=>{
 
 })
 
-
+app.get("/",(req,res)=>{
+    res.json("Hello!");
+})
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
     app.get('*', (req, res) =>{
