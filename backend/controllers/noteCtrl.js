@@ -1,76 +1,118 @@
-const Notes = require('../models/noteModel')
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const noteCtrl = {
-    getNotes:async(req,res)=>{
+function EditNote() {
+  const { id } = useParams();
+  const [note, setNote] = useState({
+    title: '',
+    content: '',
+    date: '',
+    id: '',
+  });
+  const [error, setError] = useState('');
+
+  const history = useNavigate();
+
+  useEffect(() => {
+    const getNote = async () => {
+      const token = localStorage.getItem('tokenStore');
+      if (id) {
         try {
-            // res.json({user_id:req.user.id})
-            const notes = await Notes.find({user_id : req.user.id})
-            res.json(notes)
-            // console.log(user_id)
-            // console.log(req.user.id)
-
+          const res = await axios.get(`https://my-simpre-project.vercel.app/api/notes/${id}`, {
+            headers: { Authorization: token },
+          });
+          setNote({
+            title: res.data.title,
+            content: res.data.content,
+            date: new Date(res.data.date).toLocaleDateString(),
+            id: res.data._id,
+          });
         } catch (err) {
-            return res.status(500).json({msg:err.message})
-            
+          setError(err.message);
         }
-    },
-    createNote: async(req,res)=>{
-        try {
-            const {title,content,date} = req.body;
-           
-            const newNote = new Notes({
-                title,
-                content,
-                date,
-                user_id:req.user.id,
-                name:req.user.name
+      }
+    };
 
-            })
-        
-            await newNote.save()
-            res.json({msg:"Created  a notes"})
+    getNote();
+  }, [id]);
 
-            
-        } catch (err) {
-            return res.status(500).json({msg:err.message})
-            
-        }
-    },
-    deleteNote: async(req,res)=>{
-        try {
-            await Notes.findByIdAndDelete(req.params.id)
-            res.json({msg:"Deleted a note"})
-            
-        } catch (err) {
-            return res.status(500).json({msg:err.message})
-        }
+  const onChangeInput = e => {
+    const { name, value } = e.target;
+    setNote({ ...note, [name]: value });
+  };
 
-    },
-    updateNote: async(req,res)=>{
-        try {
-            const {title, content, date} =req.body;
-            await Notes.findByIdAndUpdate({_id:req.params.id},{
-                title,
-                content,
-                date
-            }) 
-            res.json({msg:"Notes has been updated"})
-            
-        } catch (error) {
-            return res.status(500).json({msg:err.message})
-            
-        }
-    },
-    getNote: async(req,res)=>{
-        try {
-            const note = await Notes.findById(req.params.id)
-            res.json(note)
-        } catch (error) {
-            return res.status(500).json({msg:err.message})
-            
-        }
+  const editNote = async e => {
+    e.preventDefault();
+    try {
+      const token = localStorage.getItem('tokenStore');
+      if (token) {
+        const { title, content, date, id } = note;
+        const newNote = {
+          title,
+          content,
+          date,
+        };
+
+        await axios.put(`https://my-simpre-project.vercel.app/api/notes/${id}`, newNote, {
+          headers: { Authorization: token },
+        });
+
+        history.push('/');
+      }
+    } catch (err) {
+      setError(err.message);
     }
-   
+  };
+
+  return (
+    <div className="create-note">
+      <h2>Edit note</h2>
+
+      {error && <div className="error">{error}</div>}
+
+      <form onSubmit={editNote} autoComplete="off">
+        <div className="row">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={note.title}
+            required
+            onChange={onChangeInput}
+          />
+        </div>
+
+        <div className="row">
+          <label htmlFor="content">Content</label>
+          <textarea
+            cols="30"
+            rows="10"
+            type="textarea"
+            id="content"
+            name="content"
+            value={note.content}
+            required
+            onChange={onChangeInput}
+          />
+        </div>
+
+        <div className="row">
+          <label htmlFor="date">Date:</label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value={note.date}
+            onChange={onChangeInput}
+          />
+        </div>
+
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  );
 }
 
-module.exports = noteCtrl
+export default EditNote;
