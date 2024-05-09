@@ -1,5 +1,19 @@
 {
-    "rewrites": [
-        {"source": "/(.*)", "destination": "/"}
+    "version": 2,
+    "routes": [
+      { "handle": "filesystem" }, 
+      {
+        "src": "/user(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": "/api/notes(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": ".*",
+        "dest": "server.js"
+      }
     ]
-}
+  }
+  
