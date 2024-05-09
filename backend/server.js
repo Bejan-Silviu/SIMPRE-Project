@@ -17,9 +17,9 @@ app.use('/user',userRouter)
 app.use('/api/notes',nodeRouter)
 
 app.use(cors({
-    origin:["my-simpre-project.vercel.app"],
-    methods:["POST","GET"],
-    credentials:true
+    origin: ["https://my-simpre-project.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
 }));
 //connection
 const URI = process.env.DATABASE
