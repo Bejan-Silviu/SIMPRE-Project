@@ -1,27 +1,24 @@
-require('dotenv').config()
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const userRouter = require('./routes/userRouter')
-const nodeRouter = require('./routes/nodeRouter')
-const path = require('path')
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const userRouter = require('./routes/userRouter');
+const nodeRouter = require('./routes/nodeRouter');
+const path = require('path');
 
 const app = express();
 
-
+// Middleware
 app.use(cors({
     origin: ["https://simpre-project-frontend.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
-
-
 app.use(express.json());
 
-
+// Routes
 app.use('/user', userRouter);
 app.use('/api/notes', nodeRouter);
-
 
 const URI = process.env.DATABASE;
 mongoose.connect(URI, err => {
@@ -30,15 +27,11 @@ mongoose.connect(URI, err => {
 });
 
 
-app.use(express.static('client/build'));
-app.get('/', (req, res) => {
-    res.json("Hello!");
-});
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-
 });
 
 
