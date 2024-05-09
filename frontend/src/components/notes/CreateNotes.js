@@ -29,7 +29,7 @@ function CreateNotes() {
           title,content, date
         }
 
-        await axios.post('my-simpre-project.vercel.app/api/notes',newNote,{
+        await axios.post('https://my-simpre-project.vercel.app/api/notes',newNote,{
           headers:{Authorization:token}
         })
 

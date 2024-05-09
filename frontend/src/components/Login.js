@@ -20,7 +20,7 @@ function Login({ setIsLogin }) {
   const registerSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('my-simpre-project.vercel.app/user/register', {
+      const res = await axios.post('https://my-simpre-project.vercel.app/user/register', {
         username: user.name,
         email: user.email,
         password: user.password
@@ -35,7 +35,7 @@ function Login({ setIsLogin }) {
   const loginSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('my-simpre-project.vercel.app/user/login', {
+      const res = await axios.post('https://my-simpre-project.vercel.app/user/login', {
         email: user.email,
         password: user.password
       });

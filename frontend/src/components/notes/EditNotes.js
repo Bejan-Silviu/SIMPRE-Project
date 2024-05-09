@@ -20,7 +20,7 @@ function EditNote() {
     const getNote = async () => {
       const token = localStorage.getItem('tokenStore')
       if (id) {
-        const res = await axios.get(`my-simpre-project.vercel.app/api/notes/${id}`, {
+        const res = await axios.get(`https://my-simpre-project.vercel.app/api/notes/${id}`, {
           headers: { Authorization: token }
         })
      setNote({
@@ -51,7 +51,7 @@ function EditNote() {
           title, content, date
         }
 
-        await axios.put(`my-simpre-project.vercel.app/api/notes/${id}`, newNote, {
+        await axios.put(`https://my-simpre-project.vercel.app/api/notes/${id}`, newNote, {
           headers: { Authorization: token }
         })
 
