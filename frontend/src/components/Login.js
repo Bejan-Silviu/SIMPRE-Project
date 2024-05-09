@@ -83,8 +83,8 @@ function Login({ setIsLogin }) {
             <form onSubmit={registerSubmit}>
               <h3>Register</h3>
               <div className="form-group"> {/* Add form-group class */}
-                <label>Full Name</label>
-                <input type="text" className="form-control" placeholder="Enter full name" name='name'
+                <label>Username</label>
+                <input type="text" className="form-control" placeholder="Enter username" name='name'
                   required value={user.name} onChange={onChangeInput} />
               </div>
               <div className="form-group"> {/* Add form-group class */}
