@@ -10,7 +10,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: ["https://simpre-project-frontend.vercel.app/"],
+    origin: ["https://simpre-project-frontend.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
