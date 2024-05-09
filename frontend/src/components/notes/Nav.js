@@ -25,7 +25,7 @@ function Nav({ setIsLogin }) {
         <ul className='menu'>
           <li className='menu_item'><Link to="/">Home</Link></li>
           <li className='menu_item'><Link to="/create">Create Note</Link></li>
-
+          <li className='menu_item'><Link to="/about">About</Link></li>
             <li className=" menu_item" onClick={logoutSubmit}><Link to="/">Logout</Link></li>
       </ul>
     </nav>
