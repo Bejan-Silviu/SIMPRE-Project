@@ -10,9 +10,9 @@ const app = express();
 // Middleware
 app.use(cors({
     origin: ["https://simpre-project-frontend.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"], 
+    methods: ["POST", "GET", "PUT", "DELETE"], // Include all allowed HTTP methods
     credentials: true
-}));
+  }));
 app.use(express.json());
 
 // Routes
