@@ -12,7 +12,7 @@ function App() {
     const checkLogin = async () => {
       const token = localStorage.getItem('tokenStore')
       if (token) {
-        const verified = await axios.get('http://localhost:5000/user/verify', {
+        const verified = await axios.get('my-simpre-project.vercel.app/user/verify', {
           headers: { Authorization: token }
         })
         setIsLogin(verified.data)
