@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const userRouter = require('./routes/userRouter');
 const nodeRouter = require('./routes/nodeRouter');
-const path = require('path');
 
 const app = express();
 
@@ -20,21 +19,14 @@ app.use(express.json());
 app.use('/user', userRouter);
 app.use('/api/notes', nodeRouter);
 
+// MongoDB connection
 const URI = process.env.DATABASE;
 mongoose.connect(URI, err => {
     if (err) throw err;
     console.log('Connected to MongoDB');
 });
 
-
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
-
-
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
