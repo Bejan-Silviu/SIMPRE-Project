@@ -75,8 +75,8 @@ Body:
 <img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/4.png" alt="Image 4">
 <img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/5.png" alt="Image 5">
 
-
-Demonstrare aplicație:
+<hr/>
+Video Youtube Demonstrare aplicație:
 https://youtu.be/g8dKAXWRlwY
 <hr/>
 Link Github:
