@@ -76,13 +76,13 @@ Body:
 <img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/5.png" alt="Image 5">
 
 
-<p>Demonstrare aplicație:</p>
+Demonstrare aplicație:
 https://youtu.be/g8dKAXWRlwY
-
-<p>Link Github:</p>
+<hr/>
+Link Github:
 https://github.com/Bejan-Silviu/SIMPRE-Project
-
-<p>Link aplicație</p>
+<hr/>
+Link aplicație
 https://simpre-project-frontend.vercel.app/
-
+<hr/>
 </html>
