@@ -67,6 +67,20 @@ Body:
     <li>DELETE: Pentru a șterge resurse existente</li>
 </ul>
 
+Demonstrare aplicație:
+https://youtu.be/g8dKAXWRlwY
+
+Link Github:
+https://github.com/Bejan-Silviu/SIMPRE-Project
+
+Link aplicație
+https://simpre-project-frontend.vercel.app/
 
 <h2>5. Capturi de ecran</h2>
+![alt text](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/1.png)
+![alt text](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/2.png)
+![alt text](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/3.png)
+![alt text](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/4.png)
+![alt text](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/5.png)
+
 </html>
