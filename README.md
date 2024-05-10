@@ -77,10 +77,10 @@ Link aplicație
 https://simpre-project-frontend.vercel.app/
 
 <h2>5. Capturi de ecran</h2>
-![Image 1](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/1.png)
-![Image 2](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/2.png)
-![Image 3](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/3.png)
-![Image 4](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/4.png)
-![Image 5](https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/5.png)
+<img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/1.png" alt="Image 1">
+<img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/2.png" alt="Image 2">
+<img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/3.png" alt="Image 3">
+<img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/4.png" alt="Image 4">
+<img src="https://raw.githubusercontent.com/Bejan-Silviu/SIMPRE-Project/main/images/5.png" alt="Image 5">
 
 </html>
